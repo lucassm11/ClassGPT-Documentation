@@ -1,0 +1,170 @@
+﻿[
+    {
+        "id":  "P01",
+        "tipo":  "directa",
+        "pregunta":  "En PyMongo, escribe una consulta find() que seleccione los restaurantes de tipo Spanish, muestre solo name y borough (sin _id), los ordene por name ascendente y limite el resultado a 5 documentos.",
+        "score_maximo":  0.6906898617744446,
+        "estado":  "ok",
+        "llamo_al_modelo":  true,
+        "texto":  "¡Hola! Estaré encantado de ayudarte a construir tu consulta en PyMongo paso a paso aplicando los conceptos que necesitas.\n\nPara lograr lo que pides, debes combinar varios métodos y parámetros que ya has visto en los materiales:\n\n1. **El filtro de búsqueda (`filter`):** Para seleccionar los restaurantes cuyo tipo de cocina sea \"Spanish\". Puedes ver un ejemplo de cómo filtrar por campos específicos (como `\"cuisine\": \"Bakery\"`) en el material [Notebook - CRUD.ipynb - Celda 45].\n2. **La proyección (`projection`):** Para mostrar únicamente los campos `name` y `borough` excluyendo el `_id`. Nuevamente, la estructura exacta para hacer esto mediante un diccionario con `1` y `0` la encuentras en [Notebook - CRUD.ipynb - Celda 45].\n3. **El ordenamiento (`sort`):** Para ordenar los resultados por `name` de forma ascendente. Puedes consultar cómo utilizar el parámetro `sort` junto con `ASCENDING` en [Notebook - CRUD.ipynb - Celda 37].\n4. **La limitación (`limit`):** Para restringir el número máximo de documentos devueltos a 5. Tienes un ejemplo de cómo encadenar el método `.limit()` al final de una consulta en [Notebook - CRUD.ipynb - Celda 45].\n\nIntenta estructurar tu código combinando `restaurants.find(...)`, pasando el filtro y la proyección, y encadenando después `.sort(...)` y `.limit(5)`. \n\nSi te aturdes con alguna parte de la sintaxis, dime y lo revisamos juntos. ¡Ánimo con la práctica!",
+        "citas":  [
+                      {
+                          "cita":  "[Notebook - CRUD.ipynb - Celda 37]",
+                          "similitud":  0.6906898617744446,
+                          "tipo":  "celda"
+                      },
+                      {
+                          "cita":  "[Notebook - CRUD.ipynb - Celda 49]",
+                          "similitud":  0.6300466060638428,
+                          "tipo":  "celda"
+                      },
+                      {
+                          "cita":  "[Notebook - CRUD.ipynb - Celda 45]",
+                          "similitud":  0.6164306998252869,
+                          "tipo":  "celda"
+                      }
+                  ],
+        "latencia_segundos":  2.102,
+        "decision_esperada":  "responder"
+    },
+    {
+        "id":  "P02",
+        "tipo":  "directa",
+        "pregunta":  "Â¿QuÃ© hace la etapa $match en un pipeline de agregaciÃ³n de MongoDB y cÃ³mo se escribirÃ­a para conservar Ãºnicamente documentos cuyo campo cuisine sea Spanish?",
+        "score_maximo":  0.6270480155944824,
+        "estado":  "ok",
+        "llamo_al_modelo":  true,
+        "texto":  "Hola. Como asistente docente, estaré encantado de guiarte con tu duda sobre las agregaciones en MongoDB.\n\nBasándonos en el material de referencia, la etapa `$match` tiene la función de **filtrar documentos** utilizando una consulta similar a la que emplearías en el comando `find()` [Notebook - Teoría agregaciones.ipynb - Celda 26]. \n\nPara resolver tu pregunta sobre cómo conservar únicamente los documentos cuyo campo `cuisine` sea \"Spanish\", piensa en la estructura que utiliza `$match` dentro de un pipeline de agregación: se define el operador `$match` seguido de un documento que especifica la condición de filtrado (es decir, qué campo queremos comprobar y qué valor debe tener).\n\nIntenta redactar la estructura del diccionario en Python para esa etapa concreta. Si quieres, puedes escribir tu propuesta y la revisamos juntos para asegurar que cumple con el rigor técnico.\n\n**Fuente:** [Notebook - Teoría agregaciones.ipynb - Celda 26]",
+        "citas":  [
+                      {
+                          "cita":  "[Tema 2 - Mongodb.pdf - Diapositiva 78]",
+                          "similitud":  0.6270480155944824,
+                          "tipo":  "diapositiva"
+                      },
+                      {
+                          "cita":  "[Tema 2 - Mongodb.pdf - Diapositiva 51]",
+                          "similitud":  0.6160143613815308,
+                          "tipo":  "diapositiva"
+                      },
+                      {
+                          "cita":  "[Notebook - Teoría agregaciones.ipynb - Celda 26]",
+                          "similitud":  0.6159177422523499,
+                          "tipo":  "celda"
+                      }
+                  ],
+        "latencia_segundos":  1.766,
+        "decision_esperada":  "responder"
+    },
+    {
+        "id":  "P03",
+        "tipo":  "compleja",
+        "pregunta":  "DiseÃ±a un pipeline que cuente cuÃ¡ntos restaurantes hay por cuisine, ordene las cocinas de mayor a menor nÃºmero de restaurantes y devuelva solo las 5 primeras. Explica el papel y el orden de cada etapa.",
+        "score_maximo":  0.720762312412262,
+        "estado":  "ok",
+        "llamo_al_modelo":  true,
+        "texto":  "Hola. Como tu asistente docente, estaré encantado de guiarte para que diseñes este pipeline por ti mismo utilizando el material oficial de la asignatura.\n\nSi observas detenidamente el material, ya tienes prácticamente todos los bloques necesarios para construir esta consulta de agregación en MongoDB. \n\nPara resolver tu ejercicio, un pipeline de agregación se ejecuta de manera secuencial, pasando los documentos de una etapa a la siguiente. Analicemos las tres etapas que necesitas basándonos en el material:\n\n1. **La etapa de agrupación:** Necesitas contar cuántos restaurantes hay por cada tipo de cocina (`cuisine`). \n   * *Pista teórica:* Para agrupar documentos y realizar operaciones de conteo o acumuladores, utilizamos el operador `$group` junto con el acumulador `$count` [Notebook - Teoría agregaciones.ipynb - Celda 36].\n\n2. **La etapa de ordenación:** El enunciado te pide ordenar las cocinas de mayor a menor número de restaurantes.\n   * *Pista teórica:* Para ordenar los resultados de un pipeline en orden descendente (de mayor a menor) o ascendente, se utiliza la etapa `$sort` indicando el campo por el que se ordena y `-1` para el sentido descendente [Notebook - Teoría agregaciones.ipynb - Celda 36].\n\n3. **La etapa de limitación:** Finalmente, solo debes devolver las 5 primeras.\n   * *Pista teórica:* Para restringir el número de documentos devueltos al final del proceso, se emplea la etapa `$limit` [Notebook - Teoría agregaciones.ipynb - Celda 36].\n\n### Estructura general para construir tu solución:\n\n```python\npipeline = [\n    {\n        \"$group\": {\n            # Define aquí cómo agrupar por cocina y cómo contar\n        }\n    },\n    {\n        \"$sort\": {\n            # Define aquí el campo de conteo y el orden descendente (-1)\n        }\n    },\n    {\n        \"$limit\": # Indica el número máximo de resultados\n    }\n]\n```\n\nTe animo a que ensambles estas piezas con la sintaxis exacta que se muestra en la **Celda 36 del Notebook de Teoría de agregaciones** para obtener tu código final y aplicarlo sobre la colección `restaurants`. \n\n¿Te queda alguna duda sobre cómo funciona alguna de estas tres etapas en particular?",
+        "citas":  [
+                      {
+                          "cita":  "[Notebook - Teoría agregaciones.ipynb - Celda 36]",
+                          "similitud":  0.720762312412262,
+                          "tipo":  "celda"
+                      },
+                      {
+                          "cita":  "[Notebook - CRUD.ipynb - Celda 43]",
+                          "similitud":  0.6099696159362793,
+                          "tipo":  "celda"
+                      },
+                      {
+                          "cita":  "[Notebook - Teoría agregaciones.ipynb - Celda 11]",
+                          "similitud":  0.6073905229568481,
+                          "tipo":  "celda"
+                      }
+                  ],
+        "latencia_segundos":  2.396,
+        "decision_esperada":  "responder"
+    },
+    {
+        "id":  "P04",
+        "tipo":  "compleja",
+        "pregunta":  "Una agregaciÃ³n agrupa una colecciÃ³n grande y despuÃ©s ordena los resultados. Â¿QuÃ© problema puede producir una ordenaciÃ³n en memoria de mÃ¡s de 100 MB y quÃ© alternativas del material permiten evitarlo o mitigarlo? Relaciona la respuesta con el diseÃ±o de Ã­ndices.",
+        "score_maximo":  0.6694345474243164,
+        "estado":  "ok",
+        "llamo_al_modelo":  true,
+        "texto":  "¡Hola! Soy **ClassGPT**, tu asistente docente. Estudiemos este problema de rendimiento en las agregaciones paso a paso.\n\n### 1. El problema de la ordenación en memoria\nCuando realizas una etapa de ordenación (`sort`) en una agregación sobre una colección grande, el sistema por defecto realiza esta operación **en memoria**. El límite establecido para esta operación en memoria es de **100 MB** [Notebook - Teoría agregaciones.ipynb - Celda 35]. Si el volumen de datos o documentos supera este umbral, la operación fallará o se detendrá por exceder la capacidad asignada en la memoria RAM.\n\n### 2. Alternativas para evitarlo o mitigarlo\nSegún el material de referencia, disponemos de una alternativa directa en la etapa `sort` para colecciones grandes:\n* **Uso de disco:** Puedes habilitar el procesamiento en disco añadiendo el parámetro `allowDiskUse=True` dentro de la función `aggregate()` [Notebook - Teoría agregaciones.ipynb - Celda 35]. Esto permite que el motor maneje volúmenes de datos superiores a los 100 MB utilizando almacenamiento secundario.\n\n### 3. Relación con el diseño de índices\nPiensa en cómo funcionan las estructuras de índices: un índice ya mantiene los datos ordenados de forma eficiente según una o varias claves. \n* *Pregunta socrática para guiarte:* Si el motor de base de datos ya tiene acceso a un índice adecuado que coincide con las claves de ordenación requeridas en tu agregación, ¿necesitaría realizar una operación de ordenación pesada (ya sea en memoria o en disco) sobre el conjunto completo de resultados? ¿Cómo crees que afectaría esto al rendimiento y a los límites de memoria?\n\nReflexiona sobre esto último para relacionar la indexación con el coste de las operaciones de agregación y escritura [Notebook - Indexacion y Rendimiento.ipynb - Celda 89]. ¡Dime qué concluyes!",
+        "citas":  [
+                      {
+                          "cita":  "[Notebook - Teoría agregaciones.ipynb - Celda 35]",
+                          "similitud":  0.6694345474243164,
+                          "tipo":  "celda"
+                      },
+                      {
+                          "cita":  "[DiseñoPatrones.pdf - Diapositiva 46]",
+                          "similitud":  0.6379216909408569,
+                          "tipo":  "diapositiva"
+                      },
+                      {
+                          "cita":  "[Notebook - Indexacion y Rendimiento.ipynb - Celda 89]",
+                          "similitud":  0.6340512037277222,
+                          "tipo":  "celda"
+                      }
+                  ],
+        "latencia_segundos":  2.222,
+        "decision_esperada":  "responder"
+    },
+    {
+        "id":  "P05",
+        "tipo":  "fuera_de_temario",
+        "pregunta":  "Â¿CÃ³mo se diseÃ±a y configura una colecciÃ³n time series de MongoDB, quÃ© opciones de granularity existen y cÃ³mo se optimizan sus buckets?",
+        "score_maximo":  0.7212123274803162,
+        "estado":  "ok",
+        "llamo_al_modelo":  true,
+        "texto":  "Hola. Analizando la pregunta sobre el diseño, configuración, opciones de `granularity` y optimización de *buckets* para colecciones de tipo *time series* en MongoDB, debo indicarte honestamente que **dicho tema no aparece en las diapositivas proporcionadas** en el material de referencia actual. \n\nEl material disponible cubre aspectos generales de modelización y agregaciones [Tema 2 - Mongodb.pdf - Diapositiva 51 y DiseñoPatrones.pdf - Diapositiva 2], pero no profundiza en las características específicas de las colecciones *time series*.\n\nSi tienes apuntes adicionales o material específico sobre este tema, por favor facilítamelo y estaré encantado de ayudarte a resolver tu duda basándome estrictamente en él.",
+        "citas":  [
+                      {
+                          "cita":  "[Tema 2 - Mongodb.pdf - Diapositiva 51]",
+                          "similitud":  0.7212123274803162,
+                          "tipo":  "diapositiva"
+                      },
+                      {
+                          "cita":  "[DiseñoPatrones.pdf - Diapositiva 2]",
+                          "similitud":  0.7158498764038086,
+                          "tipo":  "diapositiva"
+                      },
+                      {
+                          "cita":  "[Tema 2 - Mongodb.pdf - Diapositiva 18]",
+                          "similitud":  0.7075146436691284,
+                          "tipo":  "diapositiva"
+                      }
+                  ],
+        "latencia_segundos":  1.275,
+        "decision_esperada":  "abstenerse"
+    },
+    {
+        "id":  "P06",
+        "tipo":  "fuera_de_temario",
+        "pregunta":  "Â¿CÃ³mo se configura un Change Stream para recibir cambios de una colecciÃ³n, quÃ© eventos genera y cÃ³mo se reanuda desde un resume token?",
+        "score_maximo":  0.5493131279945374,
+        "estado":  "ok",
+        "llamo_al_modelo":  true,
+        "texto":  "Hola. Como asistente docente, debo indicarte honestamente que **dicho tema (la configuración, eventos y reanudación mediante *resume tokens* de un Change Stream) no aparece en las diapositivas o materiales de referencia proporcionados**. \n\nEl material actual solo cubre los métodos básicos de modificación de documentos mediante CRUD (como `update_one` o `update_many`) y el funcionamiento básico de las modificaciones en un conjunto de réplicas a través del *oplog* [Notebook - CRUD.ipynb - Celda 104, Notebook_-_Teoria_Replicas.ipynb - Celda 53]. \n\nSi dispones de algún otro documento o notebook que trate sobre los *Change Streams*, por favor, compártelo en el material de referencia para que pueda ayudarte a resolver tu duda de forma rigurosa y basada en tus fuentes.",
+        "citas":  [
+                      {
+                          "cita":  "[Notebook - CRUD.ipynb - Celda 104]",
+                          "similitud":  0.5493131279945374,
+                          "tipo":  "celda"
+                      },
+                      {
+                          "cita":  "[Notebook_-_Teoria_Replicas.ipynb - Celda 53]",
+                          "similitud":  0.549242377281189,
+                          "tipo":  "celda"
+                      },
+                      {
+                          "cita":  "[Notebook - CRUD.ipynb - Celda 119]",
+                          "similitud":  0.4569024443626404,
+                          "tipo":  "celda"
+                      }
+                  ],
+        "latencia_segundos":  1.344,
+        "decision_esperada":  "abstenerse"
+    }
+]
