@@ -39,10 +39,10 @@ Codificación de la consulta y búsqueda vectorial se miden por separado. Las fi
 
 | Etapa | n | Media | P50 | P95 |
 | --- | ---: | ---: | ---: | ---: |
-| codificacion consulta | 6 | 38.3 | 34.8 | 55.0 |
-| busqueda vectorial | 6 | 166.1 | 141.6 | 270.3 |
-| bm25 | 6 | 4.8 | 4.8 | 5.9 |
-| rerank Cohere | 6 | 456.5 | 164.4 | 1701.9 |
+| codificacion consulta | 6 | 35.4 | 32.4 | 53.2 |
+| busqueda vectorial | 6 | 166.7 | 131.2 | 244.4 |
+| bm25 | 6 | 4.7 | 4.7 | 6.2 |
+| rerank Cohere | 6 | 270.1 | 213.0 | 602.0 |
 
 ## Notas de esta ejecución
 
