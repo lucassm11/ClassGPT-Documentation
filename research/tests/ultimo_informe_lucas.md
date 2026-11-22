@@ -1,16 +1,16 @@
 # Informe de tests de ClassGPT
 
-- **Fecha:** 2026-11-22 11:53 UTC
-- **Rama y commit:** lucas @ 368aa21
-- **Resultado:** TODOS LOS TESTS PASAN: 112 de 112 correctos en 3.7 s
+- **Fecha:** 2026-11-22 21:05 UTC
+- **Rama y commit:** lucas @ 021faba
+- **Resultado:** TODOS LOS TESTS PASAN: 115 de 115 correctos en 2.8 s
 
 Los tests son herméticos: no se conectan a MongoDB Atlas ni a las APIs de los modelos.
 
 | Tarea | Qué se comprueba | Referencia | Tests | Fallan | Estado |
 | --- | --- | --- | ---: | ---: | --- |
 | A1 | Recuperación con y sin reranking | Core Sec. 18.7 · Acta Sec. 04 | 8 | 0 | OK |
-| A2 | Abstención ante preguntas fuera del temario | Core Sec. 22 · Acta Sec. 04 | 6 | 0 | OK |
-| A3 | Colección de chunks v2 con filtros | Core Sec. 16 y 17 · Acta Sec. 09 | 4 | 0 | OK |
+| A2 | Abstención ante preguntas fuera del temario | Core Sec. 22 · Acta Sec. 04 | 7 | 0 | OK |
+| A3 | Colección de chunks v2 con filtros | Core Sec. 16 y 17 · Acta Sec. 09 | 6 | 0 | OK |
 | A4 | Auditoría de respuestas | Core Sec. 27.8 · Acta Sec. 05 | 6 | 0 | OK |
 | Base | Errores de la API del LLM | Sprints 1 y 2 | 6 | 0 | OK |
 | Base | IDL, crawler, parser de código y caché | Sprints 1 y 2 | 9 | 0 | OK |
