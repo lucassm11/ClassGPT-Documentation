@@ -1,8 +1,8 @@
 # Informe de tests de ClassGPT
 
-- **Fecha:** 2026-11-22 21:05 UTC
-- **Rama y commit:** lucas @ 021faba
-- **Resultado:** TODOS LOS TESTS PASAN: 115 de 115 correctos en 2.8 s
+- **Fecha:** 2026-11-23 17:40 UTC
+- **Rama y commit:** lucas @ 5736fde
+- **Resultado:** TODOS LOS TESTS PASAN: 142 de 142 correctos en 1.9 s
 
 Los tests son herméticos: no se conectan a MongoDB Atlas ni a las APIs de los modelos.
 
@@ -10,7 +10,7 @@ Los tests son herméticos: no se conectan a MongoDB Atlas ni a las APIs de los m
 | --- | --- | --- | ---: | ---: | --- |
 | A1 | Recuperación con y sin reranking | Core Sec. 18.7 · Acta Sec. 04 | 8 | 0 | OK |
 | A2 | Abstención ante preguntas fuera del temario | Core Sec. 22 · Acta Sec. 04 | 7 | 0 | OK |
-| A3 | Colección de chunks v2 con filtros | Core Sec. 16 y 17 · Acta Sec. 09 | 6 | 0 | OK |
+| A3 | Colección de chunks v2 con filtros | Core Sec. 16 y 17 · Acta Sec. 09 | 7 | 0 | OK |
 | A4 | Auditoría de respuestas | Core Sec. 27.8 · Acta Sec. 05 | 6 | 0 | OK |
 | Base | Errores de la API del LLM | Sprints 1 y 2 | 6 | 0 | OK |
 | Base | IDL, crawler, parser de código y caché | Sprints 1 y 2 | 9 | 0 | OK |
@@ -20,5 +20,5 @@ Los tests son herméticos: no se conectan a MongoDB Atlas ni a las APIs de los m
 | Evaluación | Métricas de recuperación y generación | Core Sec. 30 · Acta Sec. 08 | 19 | 0 | OK |
 | L1 | Contratos de datos y validador MIR | Core Sec. 11 y 16 · Acta Sec. 09 | 14 | 0 | OK |
 | L2 | Conectores y adaptadores a MIR | Core Sec. 9 · Acta Sec. 01 | 9 | 0 | OK |
-| L3 · L4 | Registro de fuentes, versiones e IDL oficial | Core Sec. 5, 7 y 8 · Acta Sec. 09 | 7 | 0 | OK |
-| S1 | Fragmentación a partir del MIR | Core Sec. 14 | 4 | 0 | OK |
+| L3 · L4 | Registro de fuentes, versiones e IDL oficial | Core Sec. 5, 7 y 8 · Acta Sec. 09 | 8 | 0 | OK |
+| S1 | Fragmentación a partir del MIR | Core Sec. 14 | 29 | 0 | OK |
