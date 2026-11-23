@@ -1,8 +1,8 @@
 # Informe de tests de ClassGPT
 
-- **Fecha:** 2026-11-23 22:00 UTC
-- **Rama y commit:** lucas @ cb2f7f6
-- **Resultado:** TODOS LOS TESTS PASAN: 148 de 148 correctos en 3.2 s
+- **Fecha:** 2026-11-23 22:28 UTC
+- **Rama y commit:** lucas @ 607e6d3
+- **Resultado:** TODOS LOS TESTS PASAN: 150 de 150 correctos en 3.3 s
 
 Los tests son herméticos: no se conectan a MongoDB Atlas ni a las APIs de los modelos.
 
@@ -22,4 +22,5 @@ Los tests son herméticos: no se conectan a MongoDB Atlas ni a las APIs de los m
 | L2 | Conectores y adaptadores a MIR | Core Sec. 9 · Acta Sec. 01 | 9 | 0 | OK |
 | L3 · L4 | Registro de fuentes, versiones e IDL oficial | Core Sec. 5, 7 y 8 · Acta Sec. 09 | 8 | 0 | OK |
 | Otros | test_calibrar_umbral | — | 5 | 0 | OK |
+| Otros | test_fragmentos_sin_nota | — | 2 | 0 | OK |
 | S1 | Fragmentación a partir del MIR | Core Sec. 14 | 29 | 0 | OK |
