@@ -1,8 +1,8 @@
 # Informe de tests de ClassGPT
 
-- **Fecha:** 2026-11-23 17:40 UTC
-- **Rama y commit:** lucas @ 5736fde
-- **Resultado:** TODOS LOS TESTS PASAN: 142 de 142 correctos en 1.9 s
+- **Fecha:** 2026-11-23 19:27 UTC
+- **Rama y commit:** lucas @ 88d258b
+- **Resultado:** TODOS LOS TESTS PASAN: 142 de 142 correctos en 3.7 s
 
 Los tests son herméticos: no se conectan a MongoDB Atlas ni a las APIs de los modelos.
 
